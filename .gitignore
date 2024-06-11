@@ -1,0 +1,5 @@
+db.sqlite3
+pycache
+*.py[cod]
+*$py.class
+__init__.py
