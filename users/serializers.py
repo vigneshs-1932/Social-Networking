@@ -33,9 +33,18 @@ class UserSignupSerializer(serializers.ModelSerializer):
         This serializer is used to serialize and deserialize the FriendRequest model, which represents a friend request between two users. It includes fields for the requesting user, the requested user, the status of the request, and the creation timestamp.
     """
 class FriendRequestSerializer(serializers.ModelSerializer):
+    from_user_name = serializers.SerializerMethodField()
+    to_user_name = serializers.SerializerMethodField()
+
     class Meta:
         model = FriendRequest
-        fields = ('id', 'from_user', 'to_user', 'status', 'created_at')
+        fields = ('id', 'from_user','from_user_name', 'to_user','to_user_name', 'status', 'created_at')
+
+    def get_from_user_name(self, obj):
+        return obj.from_user.name
+
+    def get_to_user_name(self, obj):
+        return obj.to_user.name
 
 """
     Serializer for updating the status of a FriendRequest instance.
