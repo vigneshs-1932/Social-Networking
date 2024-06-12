@@ -16,3 +16,6 @@ docker-compose up
 
 ### Stop the Project
 docker-compose down
+
+### Postman Collection
+https://github.com/vigneshs-1932/Social-Networking/blob/main/Social-Networking-App.postman_collection.json
